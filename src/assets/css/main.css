@@ -1,0 +1,7 @@
+body>div,body>div>div,
+.ant-layout-content,.ant-layout-content>div{
+    height: 100%;
+}
+.ant-layout-header .ant-menu>.ant-menu-submenu{
+    float: right;
+}
