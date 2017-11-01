@@ -13,7 +13,14 @@ module.exports = {
         contentBase: './build',
         historyApiFallback: true,
         inline: true,
-        hot: true
+        hot: true,
+        proxy: {
+            '/auth/*': {
+                target: 'http://localhost:8020',
+                changeOrigin: true,
+                secure: false
+            }
+        }
     },
     module: {
         rules: [
@@ -34,8 +41,8 @@ module.exports = {
                 use: ['style-loader','css-loader?sourceMap' ]
             },
             {   
-                test: /\.scss$/, 
-                use: ["style!css!sass?sourceMap"]
+                test: /\.less$/, 
+                use: ['style-loader','css-loader','less-loader']
             },
             { 
                 test: /\.(woff|svg|eot|ttf)\??.*$/,
@@ -61,24 +68,19 @@ module.exports = {
     ]
 }
 
-if (process.env.NODE_ENV !== 'production') {
-    module.exports.plugins = [
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: JSON.stringify('production')
-            }
-        }),
-        // new webpack.optimize.UglifyJsPlugin({
-        //     compress: {
-        //         warnings: false
-        //     }
-        // }),
-        new webpack.optimize.OccurrenceOrderPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
-        new HtmlWebpackPlugin({
-            template: 'index.html'
-        })
-    ]
-} else {
-    module.exports.devtool = '#source-map'
-}
+// if (process.env.NODE_ENV !== 'production') {
+//     module.exports.plugins = [
+//         new webpack.DefinePlugin({
+//             'process.env': {
+//                 NODE_ENV: JSON.stringify('production')
+//             }
+//         }),
+//         // new webpack.optimize.UglifyJsPlugin({
+//         //     compress: {
+//         //         warnings: false
+//         //     }
+//         // }),
+//     ]
+// } else {
+//     module.exports.devtool = '#source-map'
+// }

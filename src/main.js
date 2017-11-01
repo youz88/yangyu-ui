@@ -1,12 +1,13 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {Router, Route, browserHistory} from 'react-router';
 
 import { Layout, Menu, Icon } from 'antd';
 const { Content, Footer, Sider } = Layout;
 
-
-import LeftMenu from './components/LeftMenu/LeftMenu'
-import Header from './components/Header/Header'
+import LeftMenu from './components/leftMenu/leftMenu'
+import Header from './components/header/header'
+import Login from  './components/login/login'
 
 import './assets/css/main.css'
 
@@ -20,6 +21,7 @@ class Main extends React.Component {
                     collapsedWidth="0"
                     onCollapse={(collapsed, type) => { console.log(collapsed, type); }}
                 >
+
                     <LeftMenu />
                 </Sider>
                 <Layout>
@@ -38,4 +40,11 @@ class Main extends React.Component {
     }
 }
 
-ReactDOM.render(<Main />, document.getElementById('main'))
+ReactDOM.render((
+    <Router history={browserHistory}>
+        <Route path="/" component={Main}>
+            
+        </Route>
+        <Route path="/login" component={Login} />
+    </Router>
+), document.getElementById('main'))
