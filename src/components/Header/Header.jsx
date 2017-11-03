@@ -4,15 +4,11 @@ const {SubMenu} = Menu;
 
 class Header extends React.Component{
     
-    state={
-        username: 'admin'
-    }
-
     render(){
         return(
             <Layout.Header style={{background: '#fff', padding: 0 }}>
                 <Menu mode="horizontal" style={{margin:15}}>
-                    <SubMenu title={<span><Icon type="user" />{ this.state.username }</span>}>
+                    <SubMenu title={<span><Icon type="user" />{ this.props.nick_name }</span>}>
                         <Menu.Item key="setting:1">退出</Menu.Item>
                     </SubMenu>
                 </Menu>

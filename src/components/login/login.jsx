@@ -29,13 +29,22 @@ class Login extends React.Component {
                 let username = values.username, // 用户名
                     password = values.password, // 密码
                     loginParams = { // 登录参数
-                        phone: username,
-                        password: Base64.base64encode(password),
-                        accountType: 0,
+                        username: username,
+                        password: password
                     };
-                $.post('http://localhost:8020/auth/token',loginParams,function(data){
-                    localStorage.setItem('token',data.msg)
-                },'json')
+                $.ajax({
+                    url: '/login',
+                    type: 'POST',
+                    data: JSON.stringify(loginParams),
+                    contentType: 'application/json;charset=UTF-8',
+                    success: function(data, status, xhr){
+                        let authorization = xhr.getResponseHeader("authorization");
+                        if(authorization){
+                            localStorage.setItem(Config.userToken,authorization);
+                            location.href = '/';
+                        }
+                    }
+                })
 		    }
 	    });
     }
@@ -96,7 +105,7 @@ class Login extends React.Component {
                         </FormItem>
                         <div className="login-account">
                             <span>账号：admin</span>
-                            <span>密码：admin</span>
+                            <span>密码：123456</span>
                         </div>
                     </Form>
                 </div>

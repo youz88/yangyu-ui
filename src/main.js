@@ -9,10 +9,40 @@ import LeftMenu from './components/leftMenu/leftMenu'
 import Header from './components/header/header'
 import Login from  './components/login/login'
 
+import Config from './config/index';
+
 import './assets/css/main.css'
 
 class Main extends React.Component {
+
+    constructor(props){
+        super(props)
+        this.state = {
+            nick_name: '',
+        }
+    }
     
+    componentDidMount(){
+        let _this = this;
+        let _token = localStorage.getItem(Config.userToken);
+        if(_token){
+            $.ajax({
+                url: '/user/info',
+                type: 'POST',
+                headers: {
+                    Authorization: _token
+                },
+                success: function(data){
+                    _this.setState({
+                        nick_name: data.data.nickName
+                    })
+                }
+            })
+        }else{
+            location.href = '/sign_in';
+        }
+    }
+
     render() {
         return (
             <Layout>
@@ -21,11 +51,10 @@ class Main extends React.Component {
                     collapsedWidth="0"
                     onCollapse={(collapsed, type) => { console.log(collapsed, type); }}
                 >
-
                     <LeftMenu />
                 </Sider>
                 <Layout>
-                    <Header />
+                    <Header nick_name={this.state.nick_name}/>
                     <Content style={{ margin: '0 16' }}>
                         <div style={{ padding: 15, background: '#fff', minHeight: 360 }}>
                             content
@@ -45,6 +74,6 @@ ReactDOM.render((
         <Route path="/" component={Main}>
             
         </Route>
-        <Route path="/login" component={Login} />
+        <Route path="/sign_in" component={Login} />
     </Router>
 ), document.getElementById('main'))

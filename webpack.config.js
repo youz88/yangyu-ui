@@ -14,13 +14,12 @@ module.exports = {
         historyApiFallback: true,
         inline: true,
         hot: true,
-        proxy: {
-            '/auth/*': {
-                target: 'http://localhost:8020',
-                changeOrigin: true,
-                secure: false
-            }
-        }
+        proxy: [{
+            context:['/login**','/user/**'],
+            target: 'http://localhost:8020',
+            changeOrigin: true,
+            secure: false
+        }]
     },
     module: {
         rules: [

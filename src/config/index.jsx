@@ -12,9 +12,10 @@ const Main = {
 		passwordInput: '请输入密码',
 		loginError: '用户名或者密码错误!'
 	},
-	localKey: { // 本地存储Key
-		userToken: 'USER_AUTHORIZATION'
-	},
+	userToken: 'Authorization',
+	// localKey: { // 本地存储Key
+	// 	userToken: 'USER_AUTHORIZATION'
+	// },
 	/**
 	 * 只能输入英文
 	 * 
@@ -66,6 +67,14 @@ const Main = {
 		} else {
 			return localStorage.clear();
 		}
+	},
+
+	/**
+	 * 响应状态为0
+	 * @param {*} code 
+	 */
+	success(code){
+		return code == 0;
 	}
 };
 
