@@ -1,4 +1,4 @@
-const Main = {
+const Config = {
 	target: process.env.NODE_ENV !== 'production' ? 'http://admin.sosout.com' : 'http://admin.sosout.com', //目标网站
     name: 'Ant Design Admin',
     prefix: 'antdAdmin',
@@ -75,7 +75,12 @@ const Main = {
 	 */
 	success(code){
 		return code == 0;
+	},
+
+	logout(){
+		localStorage.removeItem(this.userToken);
+		location.href = '/sign_in';
 	}
 };
 
-export default Main;
+export default Config;

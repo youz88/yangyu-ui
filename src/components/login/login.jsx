@@ -43,6 +43,11 @@ class Login extends React.Component {
                             localStorage.setItem(Config.userToken,authorization);
                             location.href = '/';
                         }
+                    },
+                    error: function(request, status, e){
+                        console.log(request)
+                        console.log(status)
+                        console.log(e)
                     }
                 })
 		    }
@@ -92,12 +97,12 @@ class Login extends React.Component {
                     <Form onSubmit={this.handleSubmit}>
                         <FormItem hasFeedback>
                             {getFieldDecorator('username', { initialValue: 'admin', rules: [{ required: true, message: Config.message.usernameInput }, { validator: this.checkUsername }] })(
-                                <Input size="large" placeholder="用户名" maxLength="6" />
+                                <Input size="large" placeholder="用户名" maxLength="18" />
                             )}
                         </FormItem>
                         <FormItem hasFeedback>
                             {getFieldDecorator('password', { rules: [{ required: true, message: Config.message.passwordInput }, { validator: this.checkPassword }] })(
-                                <Input size="large" type="password" placeholder="密码" maxLength="6" />
+                                <Input size="large" type="password" placeholder="密码" maxLength="18" />
                             )}
                         </FormItem>
                         <FormItem>

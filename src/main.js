@@ -36,6 +36,9 @@ class Main extends React.Component {
                     _this.setState({
                         nick_name: data.data.nickName
                     })
+                },
+                error: function(request, status, e){
+                    Config.logout();
                 }
             })
         }else{
