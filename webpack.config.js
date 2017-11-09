@@ -15,7 +15,7 @@ module.exports = {
         inline: true,
         hot: true,
         proxy: [{
-            context:['/login**','/user/**'],
+            context:['/login**','/user/**','/permission/**'],
             target: 'http://localhost:8020',
             changeOrigin: true,
             secure: false

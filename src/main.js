@@ -15,36 +15,29 @@ import './assets/css/main.css'
 
 class Main extends React.Component {
 
-    constructor(props){
-        super(props)
-        this.state = {
-            nick_name: '',
-        }
-    }
-    
-    componentDidMount(){
-        let _this = this;
-        let _token = localStorage.getItem(Config.userToken);
-        if(_token){
-            $.ajax({
-                url: '/user/info',
-                type: 'POST',
-                headers: {
-                    Authorization: _token
-                },
-                success: function(data){
-                    _this.setState({
-                        nick_name: data.data.nickName
-                    })
-                },
-                error: function(request, status, e){
-                    Config.logout();
-                }
-            })
-        }else{
-            location.href = '/sign_in';
-        }
-    }
+    // componentDidMount(){
+    //     let _this = this;
+    //     let _token = localStorage.getItem(Config.userToken);
+    //     if(_token){
+    //         $.ajax({
+    //             url: '/user/info',
+    //             type: 'POST',
+    //             headers: {
+    //                 Authorization: _token
+    //             },
+    //             success: function(data){
+    //                 _this.setState({
+    //                     nick_name: data.data.nickName
+    //                 })
+    //             },
+    //             error: function(request, status, e){
+    //                 Config.logout();
+    //             }
+    //         })
+    //     }else{
+    //         location.href = '/sign_in';
+    //     }
+    // }
 
     render() {
         return (
@@ -57,7 +50,7 @@ class Main extends React.Component {
                     <LeftMenu />
                 </Sider>
                 <Layout>
-                    <Header nick_name={this.state.nick_name}/>
+                    <Header />
                     <Content style={{ margin: '0 16' }}>
                         <div style={{ padding: 15, background: '#fff', minHeight: 360 }}>
                             content
