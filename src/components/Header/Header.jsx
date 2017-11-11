@@ -42,8 +42,8 @@ class Header extends React.Component{
         }
 
         return(
-            <Layout.Header style={{background: '#fff', padding: 0 }}>
-                <Menu mode="horizontal" style={{margin:15}} onClick={this.onMenuClick}>
+            <Layout.Header className={this.props.bgStyle} style={{padding: 0}}>
+                <Menu mode="horizontal" className={this.props.bgStyle} style={{margin:15}} onClick={this.onMenuClick}>
                     {title()}                    
                 </Menu>
             </Layout.Header>

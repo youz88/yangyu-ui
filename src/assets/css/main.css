@@ -5,3 +5,11 @@ body>div,body>div>div,
 .ant-layout-header .ant-menu>.ant-menu-submenu{
     float: right;
 }
+
+.lightColor{
+    background-color: #fff;
+}
+
+.darkColor{
+    background-color: #404040;
+}

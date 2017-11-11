@@ -39,20 +39,34 @@ class Main extends React.Component {
     //     }
     // }
 
+    state = {
+        bgStyle: 'lightColor' //?????????
+    }
+
+    changeSiderColor(theme){
+        this.setState({
+            bgStyle: theme ? 'lightColor' : 'darkColor'
+        })
+    }
+
     render() {
         return (
             <Layout>
                 <Sider
+                    className={this.state.bgStyle}
+                    /* style={{backgroundColor: this.state.bgColor}} */
                     breakpoint="lg"
                     collapsedWidth="0"
                     onCollapse={(collapsed, type) => { console.log(collapsed, type); }}
                 >
-                    <LeftMenu />
+                    <LeftMenu changeSiderColor={this.changeSiderColor.bind(this)}/>
                 </Sider>
-                <Layout>
-                    <Header />
+                <Layout style={{marginLeft: 1}}>
+                    <Header bgStyle={this.state.bgStyle}/>
                     <Content style={{ margin: '0 16' }}>
-                        <div style={{ padding: 15, background: '#fff', minHeight: 360 }}>
+                        <div 
+                            className={this.state.bgStyle} 
+                            style={{ padding: 15, minHeight: 360 }}>
                             content
                         </div>
                     </Content>

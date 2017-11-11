@@ -6,14 +6,15 @@ import Config from '../../config/index';
 
 class LeftMenu extends React.Component {
     state = {
-        theme: 'dark',
+        theme: 'light',
         current: '1',
         subMenu: ''
     }
 
     changeTheme = (value) => {
+        this.props.changeSiderColor(value);
         this.setState({
-            theme: value ? 'dark' : 'light',
+            theme: value ? 'light' : 'dark',
         });
     }
     
@@ -53,17 +54,16 @@ class LeftMenu extends React.Component {
         return (
             <div>
                 <Switch
-                    checked={this.state.theme === 'dark'}
+                    checked={this.state.theme === 'light'}
                     onChange={this.changeTheme}
-                    checkedChildren="Dark"
-                    unCheckedChildren="Light"
+                    checkedChildren="Light"
+                    unCheckedChildren="Dark"
                 />
                 <br />
                 <br />
                 <Menu
                     theme={this.state.theme}
                     onClick={this.handleClick}
-                    /* defaultOpenKeys={['sub0']} */
                     selectedKeys={[this.state.current]}
                     mode="inline"
                 >
