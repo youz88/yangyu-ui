@@ -8,7 +8,7 @@ import $ from 'jquery';
 import Config from '../../config/index';
 import Base64 from '../../config/base64';
 
-import styles from './login.less';
+import './login.less';
 
 class Login extends React.Component {
 
@@ -76,16 +76,6 @@ class Login extends React.Component {
 
     render() {
         const { getFieldDecorator } = this.props.form;
-        const formItemLayout = {
-            labelCol: {
-              xs: { span: 24 },
-              sm: { span: 6 },
-            },
-            wrapperCol: {
-              xs: { span: 24 },
-              sm: { span: 14 },
-            },
-          };
 
         return (
             <div className="login-container">
@@ -108,6 +98,14 @@ class Login extends React.Component {
                         <FormItem>
                             <Button type="primary" htmlType="submit" size="large" >登录</Button>
                         </FormItem>
+                        <div className="other">
+                            其他登录方式
+                            {/* 需要加到 Icon 中 */}
+                            <span className="iconAlipay" />
+                            <span className="iconTaobao" />
+                            <span className="iconWeibo" />
+                            <Link className="register" to="/sign_up">注册账户</Link>
+                        </div>
                         <div className="login-account">
                             <span>账号：admin</span>
                             <span>密码：123456</span>

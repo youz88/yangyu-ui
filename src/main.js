@@ -8,6 +8,7 @@ const { Content, Footer, Sider } = Layout;
 import LeftMenu from './components/leftMenu/leftMenu'
 import Header from './components/header/header'
 import Login from  './components/login/login'
+import Register from  './components/register/register'
 
 import Config from './config/index';
 
@@ -40,7 +41,7 @@ class Main extends React.Component {
     // }
 
     state = {
-        bgStyle: 'lightColor' //?????????
+        bgStyle: 'lightColor' //??????
     }
 
     changeSiderColor(theme){
@@ -71,7 +72,7 @@ class Main extends React.Component {
                         </div>
                     </Content>
                     <Footer style={{ textAlign: 'center' }}>
-                        Hello World Â©2016 Created by Youz
+                        Hello World ©2017 Created by Youz
                     </Footer>
                 </Layout>
             </Layout>
@@ -84,6 +85,7 @@ ReactDOM.render((
         <Route path="/" component={Main}>
             
         </Route>
+        <Route path="/sign_up" component={Register} />
         <Route path="/sign_in" component={Login} />
     </Router>
 ), document.getElementById('main'))

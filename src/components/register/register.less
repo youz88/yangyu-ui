@@ -1,0 +1,51 @@
+.register-container{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #FA8BFF;
+  background-image: linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%);
+  background-size: cover;
+}
+.register-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -210px 0 0 -183px;
+  width: 368px;
+  height: 440px;
+  padding: 36px;
+  box-shadow: 0 0 100px rgba(0, 0, 0, .08);
+  background-color: #fff;
+  border-radius: 4px;
+
+  h3 {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .mobileGroup {
+    .ant-form-item {
+      margin-bottom: 0;
+      vertical-align: top;
+
+      &:first-child .ant-select-selection {
+        border-right-width: 0;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      &:last-child .ant-input {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+
+  .submit {
+    width: 50%;
+  }
+
+  .login {
+    float: right;
+  }
+}
