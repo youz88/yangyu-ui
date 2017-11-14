@@ -9,6 +9,7 @@ import LeftMenu from './components/leftMenu/leftMenu'
 import Header from './components/header/header'
 import Login from  './components/login/login'
 import Register from  './components/register/register'
+import NewsList from './components/newsList/newsList'
 
 import Config from './config/index';
 
@@ -41,7 +42,7 @@ class Main extends React.Component {
     // }
 
     state = {
-        bgStyle: 'lightColor' //??????
+        bgStyle: 'lightColor' //默认背景颜色
     }
 
     changeSiderColor(theme){
@@ -68,11 +69,11 @@ class Main extends React.Component {
                         <div 
                             className={this.state.bgStyle} 
                             style={{ padding: 15, minHeight: 360 }}>
-                            content
+                            <NewsList />
                         </div>
                     </Content>
                     <Footer style={{ textAlign: 'center' }}>
-                        Hello World �2017 Created by Youz
+                        Hello World ©2017 Created by Youz
                     </Footer>
                 </Layout>
             </Layout>
