@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import { Form, Card, Select, List, Tag, Icon, Avatar, Row, Col, Button, Input } from 'antd';
 
+import './newsList.less'
+
 class NewsList extends React.Component {
 
     render() {
@@ -127,6 +129,10 @@ class NewsList extends React.Component {
                         bordered={false}
                         bodyStyle={{ padding: '8px 32px 32px 32px' }}
                     >
+                        <Input
+                            style={{ width:500, marginRight: 8}}
+                        />
+                        <Button type="primary" icon="search">搜索</Button>
                         <List
                             size="large"
                             loading={list.length === 0 ? loading : false}
