@@ -7,7 +7,7 @@ import Config from '../../config/index';
 class LeftMenu extends React.Component {
     state = {
         theme: 'light',
-        current: '1',
+        current: '101',
         subMenu: ''
     }
 
@@ -65,6 +65,7 @@ class LeftMenu extends React.Component {
                     theme={this.state.theme}
                     onClick={this.handleClick}
                     selectedKeys={[this.state.current]}
+                    defaultOpenKeys={['sub0']}
                     mode="inline"
                 >
                     {this.state.subMenu}

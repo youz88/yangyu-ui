@@ -27,33 +27,32 @@ class Header extends React.Component{
         })
     }
 
+    onMenuClick = ({key}) => {
+        if(key == 'logout'){
+            Config.logout();
+        }
+    }
+
     render(){
-        let title = () => {
-            if(this.state.nickName){
-                return <SubMenu title={<span><Icon type="user" />{ this.props.nickName }</span>}>
+        const title =  this.state.nickName ? 
+        (
+             <SubMenu title={<span><Icon type="user" />{ this.props.nickName }</span>}>
                             <Menu.Item>个人中心</Menu.Item>
                             <Menu.Item>设置</Menu.Item>
                             <Menu.Divider />
                             <Menu.Item key="logout">退出</Menu.Item>
                         </SubMenu>
-            }else{
-                return <SubMenu title={<a href="/sign_in">登录</a>} />
-            }
-        }
+        ) : (
+            <SubMenu title={<a href="/sign_in">登录</a>} />
+        )
 
         return(
             <Layout.Header className={this.props.bgStyle} style={{padding: 0}}>
                 <Menu mode="horizontal" className={this.props.bgStyle} style={{margin:15}} onClick={this.onMenuClick}>
-                    {title()}                    
+                    {title}         
                 </Menu>
             </Layout.Header>
         )
-    }
-
-    onMenuClick = ({key}) => {
-        if(key == 'logout'){
-            Config.logout();
-        }
     }
 }
 
