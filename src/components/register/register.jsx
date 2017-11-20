@@ -65,6 +65,9 @@ class Register extends React.Component {
                 type: 'register/submit',
                 payload: values,
                 });
+                // $.post('/user/register',values,funtion(data){
+
+                // })
             }
             }
         );
@@ -188,29 +191,15 @@ class Register extends React.Component {
                                 )}
                         </FormItem>
                         <FormItem>
-                            <InputGroup size="large" className="mobileGroup" compact>
-                                <FormItem style={{ width: '20%' }}>
-                                    {getFieldDecorator('prefix', {
-                                        initialValue: '86',
-                                    })(
-                                        <Select size="large">
-                                            <Option value="86">+86</Option>
-                                            <Option value="87">+87</Option>
-                                        </Select>
-                                        )}
-                                </FormItem>
-                                <FormItem style={{ width: '80%' }}>
-                                    {getFieldDecorator('mobile', {
-                                        rules: [{
-                                            required: true, message: '请输入手机号！',
-                                        }, {
-                                            pattern: /^1\d{10}$/, message: '手机号格式错误！',
-                                        }],
-                                    })(
-                                        <Input placeholder="11位手机号" />
-                                        )}
-                                </FormItem>
-                            </InputGroup>
+                            {getFieldDecorator('mobile', {
+                                rules: [{
+                                    required: true, message: '请输入手机号！',
+                                }, {
+                                    pattern: /^1\d{10}$/, message: '手机号格式错误！',
+                                }],
+                            })(
+                                <Input placeholder="11位手机号" />
+                                )}
                         </FormItem>
                         <FormItem>
                             <Row gutter={8}>

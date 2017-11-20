@@ -29,7 +29,7 @@ class LeftMenu extends React.Component {
         let _this = this;
         let _token = localStorage.getItem(Config.userToken);
         $.ajax({
-            url: '/permission/all',
+            url: '/permission/authority',
             type: 'POST',
             headers: {
                 Authorization: _token

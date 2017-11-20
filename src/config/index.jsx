@@ -8,7 +8,7 @@ const Config = {
     needLogin: true,
 	message: { // 提示信息
 		usernameInput: '请输入用户名',
-        usernameEng: '用户名必须是字母',
+        usernameEng: '用户名为6-18位',
 		passwordInput: '请输入密码',
 		loginError: '用户名或者密码错误!'
 	},
@@ -23,7 +23,7 @@ const Config = {
 	 * @returns
 	 */
 	checkEng(str) {
-		var reg = new RegExp(/^[A-Za-z]+$/);
+		var reg = new RegExp(/^[\d\w]{6,18}$/);
 		return str && reg.test(str);
 	},
     /**

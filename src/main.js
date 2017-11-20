@@ -72,7 +72,7 @@ class Main extends React.Component {
                             <NewsList />
                         </div>
                     </Content>
-                    <Footer style={{ textAlign: 'center' }}>
+                    <Footer style={{ textAlign: 'center',padding: 10 }}>
                         Hello World ©2017 Created by Youz
                     </Footer>
                 </Layout>

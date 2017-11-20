@@ -45,9 +45,7 @@ class Login extends React.Component {
                         }
                     },
                     error: function(request, status, e){
-                        console.log(request)
-                        console.log(status)
-                        console.log(e)
+                        message.error(request.responseJSON.message)
                     }
                 })
 		    }
@@ -86,7 +84,7 @@ class Login extends React.Component {
                     </div>
                     <Form onSubmit={this.handleSubmit}>
                         <FormItem hasFeedback>
-                            {getFieldDecorator('username', { initialValue: 'admin', rules: [{ required: true, message: Config.message.usernameInput }, { validator: this.checkUsername }] })(
+                            {getFieldDecorator('username', { initialValue: '13512345678', rules: [{ required: true, message: Config.message.usernameInput }, { validator: this.checkUsername }] })(
                                 <Input size="large" placeholder="用户名" maxLength="18" />
                             )}
                         </FormItem>
@@ -107,7 +105,7 @@ class Login extends React.Component {
                             <Link className="register" to="/sign_up">注册账户</Link>
                         </div>
                         <div className="login-account">
-                            <span>账号：admin</span>
+                            <span>账号：13512345678</span>
                             <span>密码：123456</span>
                         </div>
                     </Form>

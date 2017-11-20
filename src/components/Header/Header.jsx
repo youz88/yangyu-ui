@@ -36,7 +36,7 @@ class Header extends React.Component{
     render(){
         const title =  this.state.nickName ? 
         (
-             <SubMenu title={<span><Icon type="user" />{ this.props.nickName }</span>}>
+             <SubMenu title={<span><Icon type="user" />{ this.state.nickName }</span>}>
                             <Menu.Item>个人中心</Menu.Item>
                             <Menu.Item>设置</Menu.Item>
                             <Menu.Divider />
