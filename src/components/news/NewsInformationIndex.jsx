@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import { Card, List, Tag, Icon, Avatar, Row, Col, Button, Input } from 'antd';
 
-class NewsList extends React.Component {
+class NewsInformationIndex extends React.Component {
 
     state = {
         list: [],
@@ -132,4 +132,4 @@ class NewsList extends React.Component {
     }
 }
 
-module.exports = NewsList;
+module.exports = NewsInformationIndex;

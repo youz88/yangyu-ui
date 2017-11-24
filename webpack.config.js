@@ -15,7 +15,7 @@ module.exports = {
         inline: true,
         hot: true,
         proxy: [{
-            context:['/login**','/user/**','/permission/**','/news/**'],
+            context:['/login**','/user/**','/permission/**'],
             target: 'http://localhost:8090',
             changeOrigin: true,
             secure: false
@@ -61,9 +61,11 @@ module.exports = {
         }),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-        new HtmlWebpackPlugin({
-            template: 'index.html'
-        })
+        //加了后bundle.js路径不能解析
+        // new HtmlWebpackPlugin({
+        //     template: './index.html',
+        //     filename: './index.html',   //这里的根路径是module.exports.output.path  
+        // })
     ]
 }
 

@@ -61,13 +61,9 @@ class Register extends React.Component {
         this.props.form.validateFields({ force: true },
             (err, values) => {
             if (!err) {
-                this.props.dispatch({
-                type: 'register/submit',
-                payload: values,
-                });
-                // $.post('/user/register',values,funtion(data){
-
-                // })
+                $.post('/user/register',values,function(data){
+                    
+                })
             }
             }
         );
@@ -108,7 +104,7 @@ class Register extends React.Component {
             } else {
                 const { form } = this.props;
                 if (value && this.state.confirmDirty) {
-                    form.validateFields(['confirm'], { force: true });
+                    form.validateFields(['confirmPwd'], { force: true });
                 }
                 callback();
             }
@@ -139,7 +135,7 @@ class Register extends React.Component {
                     <h3>注册</h3>
                     <Form onSubmit={this.handleSubmit}>
                         <FormItem>
-                            {getFieldDecorator('mail', {
+                            {getFieldDecorator('email', {
                                 rules: [{
                                     required: true, message: '请输入邮箱地址！',
                                 }, {
@@ -176,7 +172,7 @@ class Register extends React.Component {
                             </Popover>
                         </FormItem>
                         <FormItem>
-                            {getFieldDecorator('confirm', {
+                            {getFieldDecorator('confirmPwd', {
                                 rules: [{
                                     required: true, message: '请确认密码！',
                                 }, {
@@ -191,7 +187,7 @@ class Register extends React.Component {
                                 )}
                         </FormItem>
                         <FormItem>
-                            {getFieldDecorator('mobile', {
+                            {getFieldDecorator('phone', {
                                 rules: [{
                                     required: true, message: '请输入手机号！',
                                 }, {
